@@ -2,18 +2,94 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#011039"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#28B88F"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/uoslogo"
+            app:tint="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            app:srcCompat="@drawable/completelogo" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:shadowColor="#011039"
+            android:shadowDy="5"
+            android:shadowRadius="4"
+            android:text="Welcome to UOS On Track!"
+            android:textAlignment="center"
+            android:textColor="#F6F8F8"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/StartButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:backgroundTint="#011039"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="10sp"
+                android:text="Destination Guide"
+                android:textSize="30sp"
+                app:cornerRadius="20sp"
+                app:strokeColor="#F6F8F8"
+                app:strokeWidth="5sp" />
+
+            <Button
+                android:id="@+id/LookupButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:backgroundTint="#011039"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="10sp"
+                android:text="Schedule Lookup"
+                android:textSize="30sp"
+                app:cornerRadius="20sp"
+                app:strokeColor="#F6F8F8"
+                app:strokeWidth="5sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#011039"
+    tools:context=".Primary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#28B88F"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginVertical="20sp"
+            android:layout_weight="1"
+            android:contentDescription="Map View" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:shadowColor="#011039"
+                android:shadowDy="5"
+                android:shadowRadius="4"
+                android:text="Destination"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/EndRadio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/EndRadioM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Men (M)"
+                    android:textAlignment="center"
+                    android:textColor="#011039"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/EndRadioW"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="20sp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Women (W)"
+                    android:textAlignment="center"
+                    android:textColor="#011039"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <AutoCompleteTextView
+                android:id="@+id/EndSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Choose your destination"
+                android:textAlignment="center"
+                android:textColor="#011039"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/GoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:backgroundTint="#011039"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="10sp"
+            android:text="Go"
+            android:textSize="30sp"
+            app:cornerRadius="20sp"
+            app:strokeColor="#F6F8F8"
+            app:strokeWidth="5sp" />
+
+        <Button
+            android:id="@+id/ScheduleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginTop="0sp"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="#011039"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="10sp"
+            android:text="See Schedule"
+            android:textSize="30sp"
+            app:cornerRadius="20sp"
+            app:strokeColor="#F6F8F8"
+            app:strokeWidth="5sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

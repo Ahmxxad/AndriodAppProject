@@ -1,0 +1,18 @@
+W: Forum Building
+W: Masjed
+W1: College of Shari'a & Islamic Studies, College of Law
+W2: College of Arts, Humanities, & Social Sciences
+W3: College of Arts, Humanities, & Social Sciences
+W4: Classrooms
+W5: College of Business Administration
+W7: College of Communication
+W8: College of Science
+W9: College of Engineering
+W10: Classrooms
+M11: Main Administration Building
+M12/W12: Central Laboratories
+W13: Student Dorms
+W15: Indoor Sports Complex
+W16: Library, Disability Centre Lab
+W20: Dining Hall
+W21: Student Centre
