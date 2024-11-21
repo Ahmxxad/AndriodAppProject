@@ -1,0 +1,14 @@
+M1: College of Shari'a & Islamic Studies
+M1A: Research Building
+M2: College of Law
+M3: College of Arts, Humanities, & Social Sciences
+M3A: Graduate Studies
+M4: Classrooms
+M5: College of Business Administration
+M6: College of Communication
+M7: College of Science
+M8: Dept. of Architecture, College of Engineering
+M9: College of Engineering
+M10: Classrooms
+M11: Main Administration Building
+M12/W12: Central Laboratories
