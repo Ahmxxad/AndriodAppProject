@@ -79,38 +79,34 @@
                     android:textStyle="bold" />
             </RadioGroup>
 
-            <AutoCompleteTextView
-                android:id="@+id/SchedulesSelection"
+            <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="Choose Hall"
                 android:textAlignment="center"
                 android:textColor="#011039"
                 android:textSize="25sp"
-                android:textStyle="italic"
-                android:visibility="visible" />
+                android:textStyle="italic" />
 
-            <EditText
-                android:id="@+id/SchedulesNumber"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Three-Digit Number"
-                android:ems="10"
-                android:fontFamily="sans-serif-condensed"
-                android:hint="Enter Room Number"
-                android:inputType="number"
-                android:textAlignment="center"
-                android:textColorHint="#011039"
-                android:textSize="25sp"
-                android:textStyle="italic"
-                android:visibility="visible" />
+                android:layout_marginTop="16dp">
 
-            <TableLayout
-                android:id="@+id/tableLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:stretchColumns="*" />
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TableLayout
+                        android:id="@+id/tableLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="*" />
+
+                </HorizontalScrollView>
+            </ScrollView>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
