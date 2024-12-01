@@ -14,20 +14,38 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="20sp"
         android:background="#28B88F"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="10sp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/topBorder2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:rotation="180"
+            android:rotationX="0"
+            android:rotationY="0"
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/border" />
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="60sp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
@@ -41,41 +59,42 @@
                 android:text="Schedules"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="32sp"
+                android:textSize="40sp"
                 android:textStyle="bold" />
 
             <RadioGroup
                 android:id="@+id/SchedulesRadio"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
                 android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/SchedulesRadioM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20sp"
-                    android:layout_marginEnd="10sp"
+                    android:layout_marginHorizontal="10sp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal|center_vertical"
                     android:text="Men (M)"
                     android:textAlignment="center"
                     android:textColor="#011039"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <RadioButton
                     android:id="@+id/SchedulesRadioW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginEnd="20sp"
+                    android:layout_marginHorizontal="10sp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal|center_vertical"
                     android:text="Women (W)"
                     android:textAlignment="center"
                     android:textColor="#011039"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
             </RadioGroup>
 
@@ -83,30 +102,58 @@
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#011039"
                 android:fontFamily="sans-serif-condensed"
+                android:foregroundTint="#011039"
+                android:paddingHorizontal="20sp"
                 android:textAlignment="center"
                 android:textColor="#011039"
                 android:textSize="25sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:tooltipText="Choose a Location" />
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#011039">
 
                 <HorizontalScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10sp">
 
                     <TableLayout
                         android:id="@+id/tableLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:paddingStart="10sp"
+                        android:paddingTop="0sp"
+                        android:paddingEnd="10sp"
+                        android:paddingBottom="0sp"
                         android:stretchColumns="*" />
 
                 </HorizontalScrollView>
             </ScrollView>
+
         </LinearLayout>
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/bottomBorder2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/border" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

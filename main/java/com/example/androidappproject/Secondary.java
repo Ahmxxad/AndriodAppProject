@@ -47,8 +47,8 @@ public class Secondary extends AppCompatActivity {
     }
 
     private void setupSpinner(String prefix) {
-        String[] items = new String[12];
-        for (int i = 0; i < 12; i++) {
+        String[] items = new String[10];
+        for (int i = 0; i < 10; i++) {
             items[i] = prefix + (i + 1);
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -61,23 +61,25 @@ public class Secondary extends AppCompatActivity {
         String[] rooms = {"001", "002", "003", "004", "005", "006", "007", "008", "101", "102", "103", "104", "105", "106", "107", "108"};
 
         TableRow headerRow = new TableRow(this);
-        headerRow.addView(createTextView("Time/Room"));
-        for (String room : rooms) {
-            headerRow.addView(createTextView(room));
+        headerRow.addView(createCell("Time/Room"));
+        for (int i = 0; i < rooms.length; i++) {
+            String room = rooms[i];
+            headerRow.addView(createCell(room));
         }
         tableLayout.addView(headerRow);
 
-        for (String time : times) {
+        for (int i = 0; i < times.length; i++) {
+            String time = times[i];
             TableRow tableRow = new TableRow(this);
-            tableRow.addView(createTextView(time));
-            for (String room : rooms) {
-                tableRow.addView(createTextView(Math.random() > 0.5 ? "Occupied" : "Not Occupied"));
+            tableRow.addView(createCell(time));
+            for (int j = 0; j < rooms.length; j++) {
+                tableRow.addView(createCell(Math.random() > 0.5 ? "Occupied" : "Not Occupied"));
             }
             tableLayout.addView(tableRow);
         }
     }
 
-    private TextView createTextView(String text) {
+    private TextView createCell(String text) {
         TextView textView = new TextView(this);
         textView.setText(text);
         textView.setPadding(10, 10, 10, 10);
