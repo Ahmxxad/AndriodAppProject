@@ -62,6 +62,17 @@
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Choose a hall and we'll get your schedules on track!"
+                android:textAlignment="center"
+                android:textColor="#011039"
+                android:textSize="15sp"
+                android:textStyle="italic" />
+
             <RadioGroup
                 android:id="@+id/SchedulesRadio"
                 android:layout_width="wrap_content"
@@ -75,9 +86,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10sp"
                     android:layout_weight="1"
+                    android:buttonTint="#011039"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="Men (M)"
+                    android:text="@string/MenText"
                     android:textAlignment="center"
                     android:textColor="#011039"
                     android:textSize="25sp"
@@ -89,9 +101,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10sp"
                     android:layout_weight="1"
+                    android:buttonTint="#011039"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="Women (W)"
+                    android:text="@string/WomenText"
                     android:textAlignment="center"
                     android:textColor="#011039"
                     android:textSize="25sp"
@@ -102,16 +115,18 @@
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10sp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="#011039"
+                android:background="@color/UOSGreenDark"
                 android:fontFamily="sans-serif-condensed"
-                android:foregroundTint="#011039"
                 android:paddingHorizontal="20sp"
+                android:popupBackground="@color/UOSNavyDark"
                 android:textAlignment="center"
                 android:textColor="#011039"
                 android:textSize="25sp"
                 android:textStyle="italic"
-                android:tooltipText="Choose a Location" />
+                android:tooltipText="Choose a Location"
+                android:visibility="gone" />
 
             <ScrollView
                 android:layout_width="match_parent"

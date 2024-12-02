@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Primary extends AppCompatActivity {
 
+    public static String passedLoc;
     private Spinner locationSpinner;
     private String[] menLocations = {"M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10", "M11", "M12", "M-Library", "M-Mosque", "M-Forum", "M-Student Centre", "M-Cafeteria"};
     private String[] womenLocations = {"W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W-Library", "W-Forum", "W-Student Centre", "W-Cafeteria"};
@@ -25,6 +27,7 @@ public class Primary extends AppCompatActivity {
         RadioGroup endRadioGroup = findViewById(R.id.EndRadio);
         locationSpinner = findViewById(R.id.locationSpinner);
         Button goButton = findViewById(R.id.GoButton);
+        Button SchedButton = findViewById(R.id.SchedButton);
 
         endRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             String[] locations;
@@ -37,18 +40,47 @@ public class Primary extends AppCompatActivity {
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, locations);
             locationSpinner.setAdapter(adapter);
             locationSpinner.setVisibility(View.VISIBLE);
+
         });
 
-        goButton.setOnClickListener(v -> {
-            String selectedLocation = locationSpinner.getSelectedItem().toString();
-            String coordinates = getCoordinates(selectedLocation);
-
-            if (!coordinates.isEmpty()) {
-                Uri MapIntentUri = Uri.parse("google.navigation:q=" + coordinates + "&mode=w");
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, MapIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
+        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(locationSpinner.getSelectedItemPosition() < 10){
+                    SchedButton.setVisibility(View.VISIBLE);
+                } else SchedButton.setVisibility(View.GONE);
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        goButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String selectedLocation = locationSpinner.getSelectedItem().toString();
+                String coordinates = getCoordinates(selectedLocation);
+
+                if (!coordinates.isEmpty()) {
+                    Uri MapIntentUri = Uri.parse("google.navigation:q=" + coordinates + "&mode=w");
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, MapIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    startActivity(mapIntent);
+                }
+            }
+        });
+
+        SchedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loc = locationSpinner.getSelectedItem().toString();
+                Intent intent = new Intent(Primary.this, Secondary.class);
+                intent.putExtra(passedLoc, locationSpinner.getSelectedItem().toString());
+                startActivity(intent);
+            }
+
         });
     }
 

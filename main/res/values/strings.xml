@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Project</string>
+    <string name="app_name">UOS On Track</string>
+    <string name="LogoDesc">UoS On Track Logo</string>
+    <string name="WelcomeText">Welcome to UOS On Track!</string>
+    <string name="DestButton">Destination Guide</string>
+    <string name="SchedButton">Schedule Lookup</string>
+    <string name="DestHint">Choose a destination and we\'ll get you on track!</string>
+    <string name="MenText">Men (M)</string>
+    <string name="WomenText">Women (W)</string>
+    <string name="GoText">Go</string>
 </resources>

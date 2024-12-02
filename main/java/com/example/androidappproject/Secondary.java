@@ -1,6 +1,9 @@
 package com.example.androidappproject;
 
+import static com.example.androidappproject.Primary.passedLoc;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,15 +20,36 @@ public class Secondary extends AppCompatActivity {
     private RadioGroup radioGroup;
     private Spinner spinner;
     private TableLayout tableLayout;
+    private String passedLocation;
+    private RadioButton SRM;
+    private RadioButton SRW;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondary);
 
+        passedLocation = getIntent().getStringExtra(passedLoc);
         radioGroup = findViewById(R.id.SchedulesRadio);
         spinner = findViewById(R.id.spinner);
         tableLayout = findViewById(R.id.tableLayout);
+        SRM = findViewById(R.id.SchedulesRadioM);
+        SRW = findViewById(R.id.SchedulesRadioW);
+
+        Log.d("Main: PassedLocation", "Loaction: " + passedLocation);
+        if(passedLocation != null){
+
+            String PLprefix = String.valueOf(passedLocation.charAt(0));
+            Log.d("Main: PassedLocation", "Prefix: " + PLprefix);
+            switch(PLprefix){
+                case "M": {SRM.setChecked(true); break;}
+                case "W": {SRW.setChecked(true); break;}
+                default: Log.d("Main: PassedLocation", "Nope");
+            }
+            setupSpinner(PLprefix);
+            checkSpinner(passedLocation);
+            spinner.setVisibility(View.VISIBLE);
+        }
 
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.SchedulesRadioM) {
@@ -33,6 +57,7 @@ public class Secondary extends AppCompatActivity {
             } else if (checkedId == R.id.SchedulesRadioW) {
                 setupSpinner("W");
             }
+            spinner.setVisibility(View.VISIBLE);
         });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -53,6 +78,12 @@ public class Secondary extends AppCompatActivity {
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         spinner.setAdapter(adapter);
+
+    }
+
+    private void checkSpinner(String passedLocation) {
+        int LocationNumber = Integer.parseInt(String.valueOf(passedLocation.charAt(1)));
+        spinner.setSelection(LocationNumber - 1);
     }
 
     private void generateTable() {
@@ -82,7 +113,7 @@ public class Secondary extends AppCompatActivity {
     private TextView createCell(String text) {
         TextView textView = new TextView(this);
         textView.setText(text);
-        textView.setPadding(10, 10, 10, 10);
+        textView.setPadding(25, 25, 25, 25);
         return textView;
     }
 }

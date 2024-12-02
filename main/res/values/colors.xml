@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="UOSGreen">#28B88F</color>
+    <color name="UOSGreenDark">#42856A</color>
+    <color name="UOSNavy">#011039</color>
+    <color name="UOSNavyDark">#3E537A</color>
 </resources>
