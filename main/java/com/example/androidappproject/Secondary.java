@@ -36,28 +36,29 @@ public class Secondary extends AppCompatActivity {
         SRM = findViewById(R.id.SchedulesRadioM);
         SRW = findViewById(R.id.SchedulesRadioW);
 
-        Log.d("Main: PassedLocation", "Loaction: " + passedLocation);
         if(passedLocation != null){
 
             String PLprefix = String.valueOf(passedLocation.charAt(0));
-            Log.d("Main: PassedLocation", "Prefix: " + PLprefix);
             switch(PLprefix){
                 case "M": {SRM.setChecked(true); break;}
                 case "W": {SRW.setChecked(true); break;}
-                default: Log.d("Main: PassedLocation", "Nope");
+                default: {};
             }
             setupSpinner(PLprefix);
             checkSpinner(passedLocation);
             spinner.setVisibility(View.VISIBLE);
         }
 
-        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            if (checkedId == R.id.SchedulesRadioM) {
-                setupSpinner("M");
-            } else if (checkedId == R.id.SchedulesRadioW) {
-                setupSpinner("W");
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (SRM.isChecked()) {
+                    setupSpinner("M");
+                } else if (SRW.isChecked()) {
+                    setupSpinner("W");
+                }
+                spinner.setVisibility(View.VISIBLE);
             }
-            spinner.setVisibility(View.VISIBLE);
         });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

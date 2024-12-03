@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
@@ -25,23 +26,27 @@ public class Primary extends AppCompatActivity {
         setContentView(R.layout.activity_primary);
 
         RadioGroup endRadioGroup = findViewById(R.id.EndRadio);
+        RadioButton ERM = findViewById(R.id.EndRadioM);
+        RadioButton ERW = findViewById(R.id.EndRadioW);
         locationSpinner = findViewById(R.id.locationSpinner);
         Button goButton = findViewById(R.id.GoButton);
         Button SchedButton = findViewById(R.id.SchedButton);
 
-        endRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            String[] locations;
-            if (checkedId == R.id.EndRadioM) {
-                locations = menLocations;
-            } else {
-                locations = womenLocations;
+        endRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                String[] locations;
+                if (ERM.isChecked()) {
+                    locations = menLocations;
+                } else {
+                    locations = womenLocations;
+                }
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(Primary.this, android.R.layout.simple_spinner_dropdown_item, locations);
+                locationSpinner.setAdapter(adapter);
+                locationSpinner.setVisibility(View.VISIBLE);
             }
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, locations);
-            locationSpinner.setAdapter(adapter);
-            locationSpinner.setVisibility(View.VISIBLE);
-
-        });
+        } );
 
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -75,7 +80,6 @@ public class Primary extends AppCompatActivity {
         SchedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String loc = locationSpinner.getSelectedItem().toString();
                 Intent intent = new Intent(Primary.this, Secondary.class);
                 intent.putExtra(passedLoc, locationSpinner.getSelectedItem().toString());
                 startActivity(intent);
