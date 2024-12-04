@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,6 +46,7 @@ public class Primary extends AppCompatActivity {
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Primary.this, android.R.layout.simple_spinner_dropdown_item, locations);
                 locationSpinner.setAdapter(adapter);
                 locationSpinner.setVisibility(View.VISIBLE);
+                goButton.setVisibility(View.VISIBLE);
             }
         } );
 
@@ -67,6 +69,7 @@ public class Primary extends AppCompatActivity {
             public void onClick(View view) {
                 String selectedLocation = locationSpinner.getSelectedItem().toString();
                 String coordinates = getCoordinates(selectedLocation);
+
 
                 if (!coordinates.isEmpty()) {
                     Uri MapIntentUri = Uri.parse("google.navigation:q=" + coordinates + "&mode=w");
